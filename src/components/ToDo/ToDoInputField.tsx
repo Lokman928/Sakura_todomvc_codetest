@@ -8,9 +8,10 @@ const ToDoInputField: FC<any> = ({}) => {
     const [userInput, setUserInput] = useState("");
 
     const submitHandler = () => {
-        console.debug(userInput);
-        dispatch(createItem({ content: userInput }));
-        setUserInput("");
+        if (userInput != "") {
+            dispatch(createItem({ content: userInput }));
+            setUserInput("");
+        }
     };
 
     return (
