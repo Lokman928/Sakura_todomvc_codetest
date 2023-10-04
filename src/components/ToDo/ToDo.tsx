@@ -19,7 +19,7 @@ const ToDo: FC<ToDoProps> = ({ className = "" }) => {
             </div>
             <div className="flex flex-col gap-1">
                 {item.map((value: todoItem) => {
-                    return <ToDoItem item={value} />;
+                    return <ToDoItem item={value} key={value.id} />;
                 })}
             </div>
         </div>
