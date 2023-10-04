@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { todoItem } from "../../types/todo.type";
 
 import { v4 as uuid } from "uuid";
@@ -46,7 +46,6 @@ export const todoSlice = createSlice({
             state.items = _itemList;
         },
     },
-    extraReducers: (builder) => {},
 });
 
 export const { createItem, changeIsDone, deleteItem } = todoSlice.actions;
