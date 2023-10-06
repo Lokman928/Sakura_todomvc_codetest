@@ -21,18 +21,20 @@ const ToDoItem: FC<ToDoItemProps> = ({ item }: { item: todoItem }) => {
         dispatch(deleteItem({ id: item.id }));
     };
 
-    // inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-200 px-3 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-600 dark:text-gray-400
-
     return (
-        <div className="flex flex-wrap gap-1">
+        <div className="grid grid-rows-2 gap-1 sm:flex sm:flex-wrap">
             <div
-                className={`flex-1 items-center border-2 px-3 py-2.5 text-sm font-semibold ${
+                className={`col-span-2 items-center border-2 px-3 py-2.5 text-sm font-semibold sm:flex-1 ${
                     _isDone ? "text-slate-500 line-through decoration-2" : ""
                 }`}
             >
                 {item.content}
             </div>
-            <Button color="failure" onClick={deleteHandler}>
+            <Button
+                className="row-span-1"
+                color="failure"
+                onClick={deleteHandler}
+            >
                 <svg
                     className="h-4 w-4 text-white"
                     aria-hidden="true"
@@ -49,7 +51,7 @@ const ToDoItem: FC<ToDoItemProps> = ({ item }: { item: todoItem }) => {
                     />
                 </svg>
             </Button>
-            <Button color="blue" onClick={doneHandler}>
+            <Button className="col-span-1" color="blue" onClick={doneHandler}>
                 <svg
                     className="h-4 w-4 text-white"
                     aria-hidden="true"
